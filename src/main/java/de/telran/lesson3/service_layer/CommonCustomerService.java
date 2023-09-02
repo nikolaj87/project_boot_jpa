@@ -2,7 +2,6 @@ package de.telran.lesson3.service_layer;
 
 import de.telran.lesson3.domain_layer.entity.Cart;
 import de.telran.lesson3.domain_layer.entity.Customer;
-import de.telran.lesson3.domain_layer.entity.Product;
 import de.telran.lesson3.repository_layer.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -60,20 +59,16 @@ public class CommonCustomerService implements CustomerService {
 
     @Override
     public void addToCartById(int customerId, int productId) {
-        Customer customer = repository.getById(customerId);
-        Product product = productService.getById(productId);
-        customer.getCart().addProduct(product);
+        repository.addToCartById(customerId, productId);
     }
 
     @Override
     public void deleteFromCart(int customerId, int productId) {
-        Customer customer = repository.getById(customerId);
-        customer.getCart().getProducts().removeIf(x -> x.getId() == productId);
+        repository.deleteFromCart(customerId, productId);
     }
 
     @Override
     public void clearCart(int customerId) {
-        Customer customer = repository.getById(customerId);
-        customer.getCart().getProducts().clear();
+        repository.clearCart(customerId);
     }
 }

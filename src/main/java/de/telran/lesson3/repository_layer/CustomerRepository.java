@@ -13,4 +13,10 @@ public interface CustomerRepository {
     void add(String name);
 
     void delete(int id);
+
+    void addToCartById(int customerId, int productId);
+
+    void deleteFromCart(int customerId, int productId);
+
+    void clearCart(int customerId);
 }
