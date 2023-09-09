@@ -22,10 +22,9 @@ public class JpaCustomer implements Customer {
     public JpaCustomer() {
     }
 
-    public JpaCustomer(int id, String name, JpaCart cart) {
+    public JpaCustomer(int id, String name) {
         this.id = id;
         this.name = name;
-        this.cart = cart;
     }
 
     @Override

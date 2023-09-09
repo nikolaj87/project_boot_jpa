@@ -2,12 +2,10 @@ package de.telran.lesson3.config_layer;
 
 import de.telran.lesson3.domain_layer.database.DataBase;
 import de.telran.lesson3.domain_layer.database.SimpleDataBase;
-import de.telran.lesson3.repository_layer.*;
+import de.telran.lesson3.repository_layer.CustomerRepository;
+import de.telran.lesson3.repository_layer.ProductRepository;
 import de.telran.lesson3.repository_layer.mysql.MySqlCustomerRepository;
 import de.telran.lesson3.repository_layer.mysql.MySqlProductRepository;
-import de.telran.lesson3.service_layer.*;
-import de.telran.lesson3.service_layer.common.CommonCustomerService;
-import de.telran.lesson3.service_layer.common.CommonProductService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -29,10 +27,10 @@ public class AppConfig {
         return new MySqlProductRepository();
     }
 
-    @Bean
-    public CustomerService customerService() {
-        return new CommonCustomerService();
-    }
+//    @Bean
+//    public CustomerService customerService() {
+//        return new CommonCustomerService();
+//    }
 
 //    @Bean
 //    public ProductService productService() {

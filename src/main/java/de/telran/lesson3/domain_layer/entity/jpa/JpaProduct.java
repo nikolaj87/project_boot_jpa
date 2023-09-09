@@ -27,6 +27,10 @@ public class JpaProduct implements Product {
         this.price = price;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public int getId() {
         return id;
