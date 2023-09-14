@@ -2,12 +2,14 @@ package de.telran.lesson3.controller_layer;
 
 import de.telran.lesson3.domain_layer.entity.common.CommonProduct;
 import de.telran.lesson3.domain_layer.entity.Product;
+import de.telran.lesson3.domain_layer.entity.jpa.JpaProduct;
 import de.telran.lesson3.exception_layer.Response;
 import de.telran.lesson3.exception_layer.exceptions.EntityValidationException;
 import de.telran.lesson3.exception_layer.exceptions.FirstTestException;
 import de.telran.lesson3.exception_layer.exceptions.SecondTestException;
 import de.telran.lesson3.exception_layer.exceptions.ThirdTestException;
 import de.telran.lesson3.service_layer.ProductService;
+import de.telran.lesson3.service_layer.jpa.JpaProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +25,7 @@ public class ProductController implements Controller {
 
     @GetMapping
     public List<Product> getAll() {
+        ((JpaProductService) service).test(new JpaProduct(0, "TestName", 100));
         List<Product> products = service.getAll();
         if (products.size() == 7) {
             throw new ThirdTestException("Список продуктов пуст!");

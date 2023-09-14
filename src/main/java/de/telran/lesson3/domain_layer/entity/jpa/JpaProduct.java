@@ -40,6 +40,10 @@ public class JpaProduct implements Product {
         this.price = price;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -57,5 +61,14 @@ public class JpaProduct implements Product {
     @Override
     public double getPrice() {
         return price;
+    }
+
+    @Override
+    public String toString() {
+        return "JpaProduct{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
